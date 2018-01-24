@@ -1,0 +1,3 @@
+python retrain.py --output_graph=retrained_graph_2.pb --output_labels=retrained_labels_2.txt --image_dir=D:\GitHub\fishackthon\fishackthon\recognition\dataset\shark_photos
+
+python label_image.py --image images.jpg --graph retrained_graph_2.pb --labels retrained_labels_2.txt
