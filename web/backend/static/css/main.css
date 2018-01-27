@@ -1774,7 +1774,7 @@
 	}
 
 	strong, b {
-		color: #555;
+		color: #aaa;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2207,7 +2207,7 @@
 	}
 
 	label {
-		color: #555;
+		color: #999;
 	}
 
 	input[type="text"],
