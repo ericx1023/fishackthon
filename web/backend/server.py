@@ -1,15 +1,17 @@
 import os   
-from flask import Flask, request, redirect, url_for, render_template, flash, session
+from flask import Flask, request, redirect, url_for, render_template, flash, session, jsonify
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/Users/sheng/code/fishackthon/web/backend/upload'
+# Gives user's home directory
+userhome = os.path.expanduser('~')          
+username = os.path.split(userhome)[-1]
+
+UPLOAD_FOLDER = '/Users/' + username + '/code/fishackthon/web/backend/upload'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "super secret key"
-
-
 
 @app.route("/")
 def index():
@@ -35,7 +37,12 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return '{"payload":"0"}'
+            return jsonify(
+                    filename=filename
+                )
 
-# @app.route('/recognize', methods=['GET'])
-# def recognize():
+
+@app.route('/recognition', methods=['GET'])
+def recognition():
+    filename = request.args.get('name', '')
+    return 'ok: ' + filename
