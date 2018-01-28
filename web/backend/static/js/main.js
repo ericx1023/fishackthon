@@ -19,7 +19,7 @@
 		 var reader = new FileReader();
 	
 		 // Closure to capture the file information.
-		 reader.onload = (function(theFile) {
+		 reader.onload = (function(theFile) {	
 		   return function(e) {
 			  // Render thumbnail.
 			  var span = document.createElement('span');
@@ -32,24 +32,26 @@
 	
 		  // Read in the image file as a data URL.
 		  reader.readAsDataURL(f);
-
+		  
 		  var form = $('form')[0];
 		  var formdata = new FormData(form);
+		  $.ajax({
+			  url: "upload",
+			  type: "POST",
+			  data: formdata,
+			  processData: false,
+			  contentType: false,
+			  success: function(resp) {
+				  // .. do something
+				  console.log(resp);
+			  },
+			  error: function(jqXHR, textStatus, errorMessage) {
+				  console.log(errorMessage); // Optional
+			  }
+		   });
+
 		//   fd.append("fileToUpload", blobFile);
 	  
-		  $.ajax({
-			url: "upload",
-			type: "POST",
-			data: formdata,
-			processData: false,
-			contentType: false,
-			success: function(response) {
-				// .. do something
-			},
-			error: function(jqXHR, textStatus, errorMessage) {
-				console.log(errorMessage); // Optional
-			}
-		 });
 		}
 	  }
 	
