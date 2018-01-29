@@ -99,41 +99,42 @@ def run_graph(image_data, labels, input_layer_name, output_layer_name,
 
     # Sort to show labels in order of confidence
     top_k = predictions.argsort()[-num_top_predictions:][::-1]
+    label_dict = {'species' : labels[top_k[0]], 'score' : predictions[top_k[0]] }
     for node_id in top_k:
       human_string = labels[node_id]
       score = predictions[node_id]
       print('%s (score = %.5f)' % (human_string, score))
 
-    return 0
+    return label_dict
 
 
-def main(argv):
-  """Runs inference on an image."""
-  if argv[1:]:
-    raise ValueError('Unused Command Line Args: %s' % argv[1:])
-
-  if not tf.gfile.Exists(FLAGS.image):
-    tf.logging.fatal('image file does not exist %s', FLAGS.image)
-
-  if not tf.gfile.Exists(FLAGS.labels):
-    tf.logging.fatal('labels file does not exist %s', FLAGS.labels)
-
-  if not tf.gfile.Exists(FLAGS.graph):
-    tf.logging.fatal('graph file does not exist %s', FLAGS.graph)
-
-  # load image
-  image_data = load_image(FLAGS.image)
-
-  # load labels
-  labels = load_labels(FLAGS.labels)
-
-  # load graph, which is stored in the default session
-  load_graph(FLAGS.graph)
-
-  run_graph(image_data, labels, FLAGS.input_layer, FLAGS.output_layer,
-            FLAGS.num_top_predictions)
-
-
-if __name__ == '__main__':
-  FLAGS, unparsed = parser.parse_known_args()
-tf.app.run(main=main, argv=sys.argv[:1]+unparsed)
+#def main(argv):
+#  """Runs inference on an image."""
+#  if argv[1:]:
+#    raise ValueError('Unused Command Line Args: %s' % argv[1:])
+#
+#  if not tf.gfile.Exists(FLAGS.image):
+#    tf.logging.fatal('image file does not exist %s', FLAGS.image)
+#
+#  if not tf.gfile.Exists(FLAGS.labels):
+#    tf.logging.fatal('labels file does not exist %s', FLAGS.labels)
+#
+#  if not tf.gfile.Exists(FLAGS.graph):
+#    tf.logging.fatal('graph file does not exist %s', FLAGS.graph)
+#
+#  # load image
+#  image_data = load_image(FLAGS.image)
+#
+#  # load labels
+#  labels = load_labels(FLAGS.labels)
+#
+#  # load graph, which is stored in the default session
+#  load_graph(FLAGS.graph)
+#
+#  run_graph(image_data, labels, FLAGS.input_layer, FLAGS.output_layer,
+#            FLAGS.num_top_predictions)
+#
+#
+#if __name__ == '__main__':
+#  FLAGS, unparsed = parser.parse_known_args()
+#tf.app.run(main=main, argv=sys.argv[:1]+unparsed)
