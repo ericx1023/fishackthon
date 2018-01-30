@@ -7,7 +7,7 @@ userhome = os.path.expanduser('~')
 username = os.path.split(userhome)[-1]
 
 UPLOAD_FOLDER = '/Users/' + username + '/code/fishackthon/web/backend/upload'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -33,7 +33,7 @@ def upload_file():
         # submit a empty part without filename
         if file.filename == '':
             flash('No selected file')
-            return redirect(request.url)
+            return redirect(request.url) 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -45,4 +45,9 @@ def upload_file():
 @app.route('/recognition', methods=['GET'])
 def recognition():
     filename = request.args.get('name', '')
-    return 'ok: ' + filename
+    # call function from recognition.py 
+    # fishname = recognize(filename)
+    return jsonify(
+                    fishname=fishname,
+                    filename=filename
+                )
