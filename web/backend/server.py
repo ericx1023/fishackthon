@@ -7,7 +7,11 @@ userhome = os.path.expanduser('~')
 username = os.path.split(userhome)[-1]
 
 UPLOAD_FOLDER = '/Users/' + username + '/code/fishackthon/web/backend/upload'
+<<<<<<< HEAD
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+=======
+ALLOWED_EXTENSIONS = set(['jpg', 'jpeg'])
+>>>>>>> edit file extension
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
