@@ -250,7 +250,7 @@
 
 	function updateResult(res) {
 		$('.js-fishname').html(res.fishname);
-		$('.js-allow').html(res.isnotallow);
+		$('.js-allow').html(res.note);
 		if(res.isnotallow) {
 			$('.js-allow').css("color",'red');
 		}
