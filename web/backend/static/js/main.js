@@ -244,7 +244,7 @@
 			})
 			.done(function(res){
 				alert(res);
-				updateResult();
+				updateResult(res);
 			})
 		}
 	})
