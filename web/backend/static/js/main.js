@@ -250,8 +250,12 @@
 	})
 
 	function updateResult(res) {
+		var isNotAllow = res.isnotallow? '是':'否';
 		$('.js-fishname').html(res.fishname);
-		$('.js-allow').html(res.isnotallow);
+		$('.js-allow').html(isNotAllow);
+		if(res.isnotallow) {
+			$('.js-allow').css("color",'red');
+		}
 		$('.js-score').html(res.score);
 		$('.js-result').show();
 	}
