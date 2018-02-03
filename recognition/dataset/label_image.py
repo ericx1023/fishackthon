@@ -107,7 +107,30 @@ def run_graph(image_data, labels, input_layer_name, output_layer_name,
 
     return label_dict
 
+def get_location(input_dict):
+    ocean_name = []
+    if not input_dict['longitude']=='':
+        if float(input_dict['longitude']) > 145 | float(input_dict['longitude']) < -100:
+            ocean_name = ['Pacific Ocean']
+        elif float(input_dict['longitude']) > 100 | float(input_dict['longitude']) < 145:
+            ocean_name = ['Indian Ocean']
+        else:
+            ocean_name = ['Atlantic Ocean']
+    else:
+        ocean_name = input_dict['ocean_name']
+    
+    return ocean_name
 
+def get_banboolean(species_name,ocean_name):
+    ban_dict = {'Pacific Ocean':['Carcharhinus falciformis','Carcharhinus longimanus','Mobula ray'],
+            'Atlantic Ocean':['Carcharhinus falciformis','Carcharhinus longimanus','Alopias pelagicus',
+                              'Alopias valpinus','Alopias superciliosus','Sphyrna mokarran',
+                              'Eusphyra blochii','Sphyrna lewini','Sphyrna zygaena'],
+            'Indian Ocean':['Carcharhinus longimanus','Carcharhinus falciformis','Alopias valpinus',
+                            'Alopias superciliosus']}
+    ocean_list = [key for key, value in ban_dict.items() if species_name in value]
+    ban_boolean = ocean_name in ocean_list
+    return ban_boolean
 #def main(argv):
 #  """Runs inference on an image."""
 #  if argv[1:]:
