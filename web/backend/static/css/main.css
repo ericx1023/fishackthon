@@ -1808,7 +1808,7 @@
 		.box > :last-child,
 		.box > :last-child > :last-child,
 		.box > :last-child > :last-child > :last-child {
-			margin-bottom: 0;
+			margin-bottom: 10px;
 		}
 
 		.box.alt {
@@ -1830,6 +1830,9 @@
 		text-align: center;
 	}
 
+	.black {
+		color: black;
+	}
 /* Button */
 
 	input[type="submit"],

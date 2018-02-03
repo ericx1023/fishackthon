@@ -66,7 +66,7 @@
 			reader.readAsDataURL(f);
 
 
-			$('html, body').animate({ scrollTop: $("#footer").offset().top }, 1000);
+			$('html, body').animate({ scrollTop: $("#footer").offset().top }, 1500);
 
 		}
 
@@ -243,20 +243,22 @@
 				type: "get",
 			})
 			.done(function(res){
-				alert(res);
 				updateResult(res);
 			})
 		}
 	})
 
 	function updateResult(res) {
-		var isNotAllow = res.isnotallow? '是':'否';
 		$('.js-fishname').html(res.fishname);
-		$('.js-allow').html(isNotAllow);
+		$('.js-allow').html(res.isnotallow);
 		if(res.isnotallow) {
 			$('.js-allow').css("color",'red');
 		}
+		else {
+			$('.js-allow').css("color",'green');
+		}
 		$('.js-score').html(res.score);
-		$('.js-result').show();
+		$('.js-result').fadeIn();
+		$('html, body').animate({ scrollTop: $(".js-result").offset().top }, 1500);
 	}
 })(jQuery);
