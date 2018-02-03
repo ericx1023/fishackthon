@@ -5,63 +5,95 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>魚種辨識 by LeadMEDown</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="static/css/main.css" />
-	</head>
-	<body>
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">魚種辨識 <span>by LeadMEDown</span></a></div>
-			</header>
+<head>
+	<title>魚種辨識 by LeadMEDown</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="static/css/main.css" />
+</head>
 
-		<!-- Banner -->
-		<!--
+<body>
+
+	<!-- Header -->
+	<header id="header" class="alt">
+		<div class="logo">
+			<a href="index.html">魚種辨識
+				<span>by LeadMEDown</span>
+			</a>
+		</div>
+	</header>
+
+	<!-- Banner -->
+	<!--
 			To use a video as your background, set data-video to the name of your video without
 			its extension (eg. static/images/banner). Your video must be available in both .mp4 and .webm
 			formats to work correctly.
 		-->
-			<section id="banner" data-video="static/images/fishery">
-				<div class="inner">
-					<h1>抓這條魚會不會害我觸法？</h1>
-					<p>把魚照片傳到資料庫，系統即會回傳，這條魚在洋區的撈捕規定<br />
-					built by  <b>Team LeadMeDown</b></p>
-					<div class="field half first">
-						<label for="name">照片上傳</label>
-						<form method=post enctype=multipart/form-data>
-							<input type="file" id="files" name="file" multiple />
-						  </form>
-						<a href="javascript:void(0)"></a>
+	<section id="banner" data-video="static/images/fishery">
+		<div class="inner">
+			<h1>抓這條魚會不會害我觸法？</h1>
+			<p>把魚照片傳到資料庫，系統即會回傳，這條魚在洋區的撈捕規定
+				<br /> built by
+				<b>Team LeadMeDown</b>
+			</p>
+			<div class="field half first">
+				<label for="name">照片上傳</label>
+				<form method=post enctype=multipart/form-data>
+					<input type="file" id="files" name="file" multiple />
+					<input type="text" class="longitude" style="display:none;">
+
+				</form>
+				<a href="javascript:void(0)"></a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper">
+		<div class="inner">
+			<section>
+				<div class="box">
+					<div class="content">
+						<h2 class="align-center"></h2>
+						<output id="list"></output>
+						<hr />
 					</div>
+					<a href="javascript:void(0)" class="button special scroll js-recognition">開始辨識</a>
+					<div class="js-result">
+						<header class="align-center" style="display:none;">
+							<h2>辨識結果</h2>
+							<p>魚種：
+								<span class="js-fishname"></span>
+								<br>
+							</p>
+							<p>是否禁補：
+								<span class="js-allow"></span>
+							</p>
+						</header>
 
+					</div>
+					<!-- <label for="longitude">請輸入您所處的經度：
+								<input type="text" id="longitude">
+							</label> -->
 				</div>
+				<div class="content">
+				</div>
+
 			</section>
+		</div>
+	</footer>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper">
-				<div class="inner">
-					<section>
-						<div class="box">
-							<div class="content">
-								<h2 class="align-center"></h2>
-								<output id="list"></output>
-								<hr />
-							</div>
-							<a href="javascript:void(0)" class="button special scroll js-recognition">開始辨識</a>
-						</div>
-					</section>
-				</div>
-			</footer>
+	<!-- Scripts -->
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/jquery.scrolly.min.js"></script>
+	<script src="static/js/jquery.scrollex.min.js"></script>
+	<script src="static/js/skel.min.js"></script>
+	<script src="static/js/binaryajax.js"></script>
+	<script src="static/js/exif.js"></script>
+	<script src="static/js/util.js"></script>
+	<script src="static/js/main.js"></script>
+</body>
 
-		<!-- Scripts -->
-			<script src="static/js/jquery.min.js"></script>
-			<script src="static/js/jquery.scrolly.min.js"></script>
-			<script src="static/js/jquery.scrollex.min.js"></script>
-			<script src="static/js/skel.min.js"></script>
-			<script src="static/js/util.js"></script>
-			<script src="static/js/main.js"></script>
-	</body>
 </html>
