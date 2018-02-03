@@ -17,3 +17,11 @@ num_top_predictions = 5
 
 label_dict = label_image.run_graph(image_data, labels, input_layer, output_layer,
               num_top_predictions)
+
+input_dict = {'image_name':'xxx','longitude':'-0.703107, -120.9375','ocean_name':''}
+input_dict_ = {'image_name':'xxx','longitude':'','ocean_name':'Pacific Ocean'}
+
+ocean_name = get_location(input_dict_)
+species_name = label_dict['species']
+
+label_dict['ban_boolean'] = get_banboolean(species_name,ocean_name)
