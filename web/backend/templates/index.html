@@ -61,19 +61,6 @@
 						<hr />
 					</div>
 					<a href="javascript:void(0)" class="button special scroll js-recognition">開始辨識</a>
-					<div class="js-result" style="display:none;">
-						<header class="align-center">
-							<h2>辨識結果</h2>
-							<p>魚種：
-								<span class="js-fishname"></span>
-								<br>
-							</p>
-							<p>是否禁補：
-								<span class="js-allow"></span>
-							</p>
-						</header>
-
-					</div>
 					<!-- <label for="longitude">請輸入您所處的經度：
 								<input type="text" id="longitude">
 							</label> -->
@@ -81,6 +68,21 @@
 				<div class="content">
 				</div>
 
+			</section>
+			<section  class="js-result" style="display:none;">
+					<header class="align-center">
+						<h2>辨識結果</h2>
+						<p>魚種：
+							<span class="js-fishname"></span>
+							<br>
+						</p>
+						<p>是否禁補：
+							<span class="js-allow"></span>
+						</p>
+						<p>辨識度：
+							<span class="js-score"></span>
+						</p>
+					</header>
 			</section>
 		</div>
 	</footer>

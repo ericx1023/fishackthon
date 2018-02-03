@@ -251,7 +251,8 @@
 
 	function updateResult(res) {
 		$('.js-fishname').html(res.fishname);
-		$('.js-allow').html(res.allow);
+		$('.js-allow').html(res.isnotallow);
+		$('.js-score').html(res.score);
 		$('.js-result').show();
 	}
 })(jQuery);
