@@ -243,7 +243,7 @@
 				type: "get",
 			})
 			.done(function(res){
-				console.log(res)
+				alert(res);
 				updateResult();
 			})
 		}
@@ -252,6 +252,6 @@
 	function updateResult(res) {
 		$('.js-fishname').html(res.fishname);
 		$('.js-allow').html(res.allow);
-		
+		$('.js-result').show();
 	}
 })(jQuery);
