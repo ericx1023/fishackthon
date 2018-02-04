@@ -1679,9 +1679,8 @@
 		@media screen and (max-width: 736px) {
 
 			h2 {
-				font-size: 1.5rem;
+				font-size: 2rem;
 			}
-
 		}
 
 	h3 {
@@ -1778,7 +1777,8 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #555;
+		color: #5AA6ED;
+		font-size:1.5em;
 	}
 
 	blockquote {
@@ -1832,6 +1832,8 @@
 
 	.black {
 		color: black;
+		padding: 20px 0;
+		font-size: 1.5em;
 	}
 /* Button */
 
